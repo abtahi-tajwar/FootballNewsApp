@@ -101,6 +101,8 @@ body {
     padding: 0.5rem;
     color: gray;
     transition: all 1s ease-out;
+    width: 100%;
+    margin-right: 10px;
  }
  .menu_container .search .search_input input:focus {
     margin-left: 10px;
