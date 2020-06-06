@@ -51,6 +51,9 @@ body {
 .menu_container .dropdown {
     display: none;
 }
+.menu_container .menu .close_dropdown {
+    display: none;
+}
 .menu_container .menu {
     margin-right: 20px;
     height: 100%;
@@ -283,6 +286,7 @@ footer {
     }
     .container .hero_picture img {
         width: 90%;
+        height: auto;
         display: block;
     }
     .container .content_container {
