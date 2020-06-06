@@ -1,0 +1,185 @@
+html {
+    font-size: 16px;
+}
+:root {
+    --pageBlue: #324897;
+    --pageRed: #DC124A;
+    --pageGray: #3B3B3B;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.container {
+    width: calc(1660/1920 * 100vw);
+    height: calc(826/1080 * 100vh);
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #F7DFDE, -10px -10px 20px #F7DFDE;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+.hero_picture {
+    grid-row: 1/12;
+    grid-column: 1/6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hero_picture img {
+    height: calc(700/826 * 100%);
+}
+.menu_container {
+    grid-row: 1/3;
+    grid-column: 6/13;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.menu_container .menu {
+    margin-right: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu_container .menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.menu_container .menu ul li {
+    font-size: 1.3rem;    
+    font-weight: bold;
+    margin-right: 20px;
+}
+.menu_container .menu ul li a {
+    text-decoration: none;
+    color: var(--pageBlue);
+}
+.menu_container .menu ul li a:hover {
+    border-bottom: 2px solid var(--pageBlue);
+}
+.menu_container .search {
+    margin-right: 20px;
+    border: 2px solid var(--pageBlue);
+    border-radius: 20px;
+    height: 35px;
+    width: 290px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.menu_container .search .search_input{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.menu_container .search .search_logo {
+    height: 100%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.menu_container .search .search_input input {
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    color: gray;
+    transition: all 1s ease-out;
+ }
+ .menu_container .search .search_input input:focus {
+    margin-left: 10px;
+ }
+.content_container {
+    grid-row: 3/12;
+    grid-column: 6/13;
+}
+.content_container .hero_header{
+    height: 60px;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 60px;
+    background: gray;
+    border-radius: 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_container .hero_header .hero_header_left {
+    height: 100%;
+    flex: 2.5;
+    color: white;
+    font-size: 1.7em;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15px;
+    background-color: var(--pageRed);
+}
+.content_container .hero_header .hero_header_right {
+    height: 100%;
+    flex: 1;
+    color: white;
+    font-size: 1.7em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+    background-color: var(--pageBlue);
+    font-weight: bold;
+}
+.content_container .description {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+.content_container .next_button {
+    height: 60px;
+    width: 300px;
+    background-color: var(--pageGray);    
+    font-size: 1.3rem;
+    font-weight: bold;    
+    margin: 0 auto;
+    margin-top: 50px;    
+}
+.content_container .next_button a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: all .2s ease-out;
+}
+.content_container .next_button a:hover {
+    box-shadow: 2px 2px 30px -20px var(--pageGray);
+    background-color: white;
+    color: var(--pageGray);
+}
+footer {
+    grid-row: 12/13;
+    grid-column: 1/13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
