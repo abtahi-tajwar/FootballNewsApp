@@ -1,0 +1,142 @@
+* {
+   margin: 0;
+   padding: 0;
+   font-family: 'Oswald', sans-serif;
+
+}
+.container {
+    height: 100%;
+    width: 100%;
+    
+}
+.container .menu_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    box-shadow: 10px 0px 10px gray; 
+    position: relative;
+}
+.container .menu_container .main_logo{
+    height: 50px;
+    width: 30%;
+    margin-left: 20px;
+}
+.container .menu_container .main_logo img {
+    display: block;
+    height: 90%;
+}
+.container .menu_container .dropdown {
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.container .menu_container .menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 0px;
+    background-color: white;
+    transition: all .3s ease-out;
+    overflow: hidden;
+    flex-direction: column;
+    z-index: 2;
+}
+.container .menu_container .menu  ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.container .menu_container .menu  ul li {
+    font-size: 1.3rem;
+    padding: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+}
+.container .menu_container .menu  ul li a {
+    text-decoration: none;
+}
+.container .menu_container .menu .close_dropdown {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .menu_container .menu .close_dropdown img {
+    transform: rotate(180deg);
+    padding-top: 100px;
+    cursor: pointer;
+}
+.hero_section {
+    position: relative;
+    height: 21.42vh;
+    width: 100%;
+    background-image: url(exported/matchPicture.png);
+}
+.hero_section img {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.hero_section .hero_info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;    
+}
+.next_match {
+    height: 20.64vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3rem;
+}
+.next_match .team-one-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.next_match .team-two-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select_league_dropdown {
+    height: 33px;
+    width: 100%;
+    box-shadow: 2px 0px 5px gray;
+    overflow: hidden;
+}
+.select_league_dropdown .dropdown_click_area {
+    height: 33px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select_league_dropdown .dropdown_click_area div:nth-child(1) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.select_league_dropdown .dropdown_click_area div:nth-child(2) {
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
