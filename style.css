@@ -45,6 +45,12 @@ body {
     justify-content: flex-end;
     align-items: center;
 }
+.menu_container .MainLogo {
+    display: none;
+}
+.menu_container .dropdown {
+    display: none;
+}
 .menu_container .menu {
     margin-right: 20px;
     height: 100%;
@@ -75,7 +81,7 @@ body {
     border: 2px solid var(--pageBlue);
     border-radius: 20px;
     height: 35px;
-    width: 290px;
+    width: 40%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -102,7 +108,7 @@ body {
     color: gray;
     transition: all 1s ease-out;
     width: 100%;
-    margin-right: 10px;
+    margin-right: 20px;
  }
  .menu_container .search .search_input input:focus {
     margin-left: 10px;
@@ -154,6 +160,11 @@ body {
     font-size: 1.1rem;
     text-align: justify;
 }
+@media only screen and (max-width: 1100px) {
+    .content_container .description {
+        width: 80%;
+    }
+}
 .content_container .next_button {
     height: 60px;
     width: 300px;
@@ -184,4 +195,107 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media only screen and (orientation: portrait)
+{
+    .hero_header {
+        display: none !important;
+    }
+    .container {
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+        border-radius: none;
+        box-shadow: none;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, minmax(60, 1fr));
+        grid-template-areas: 
+            "topnav"
+            "img"
+            "content"
+            "footer"
+        ;
+    }
+    .container .menu_container {
+        grid-area: topnav;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80px;
+        box-shadow: 10px 0px 10px gray;
+    }
+    .container .menu_container .main_logo{
+        height: 50px;
+        width: 30%;
+        margin-left: 20px;
+    }
+    .container .menu_container .main_logo img {
+        display: block;
+        height: 90%;
+    }
+    .container .menu_container .dropdown {
+        display: block;
+        margin-left: auto;
+        margin-right: 20px;
+    }
+    .container .menu_container .menu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 0px;
+        background-color: white;
+        transition: all .3s ease-out;
+        overflow: hidden;
+        flex-direction: column;
+        z-index: 2;
+    }
+    .container .menu_container .menu  ul {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .container .menu_container .menu  ul li {
+        font-size: 1.3rem;
+        padding: 5px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: lighter;
+    }
+    .container .menu_container .menu .close_dropdown {
+        height: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .menu_container .menu .close_dropdown img {
+        transform: rotate(180deg);
+        padding-top: 20px;
+        cursor: pointer;
+    }
+    .container .menu_container .search {
+        display: none;
+    }
+    .container .hero_picture {
+        grid-area: img;
+        width: 100%;
+    }
+    .container .hero_picture img {
+        width: 90%;
+        display: block;
+    }
+    .container .content_container {
+        grid-area: content;
+    }
+    .container .content_container .next_button {
+        width: 70%;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    .container footer {
+        grid-area: footer;
+        padding: 10px;
+    }
+
 }
