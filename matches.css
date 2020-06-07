@@ -115,9 +115,11 @@
     align-items: center;
 }
 .select_league_dropdown {
+    position: relative;
     height: 33px;
     width: 100%;
     box-shadow: 2px 0px 5px gray;
+    transition: all .3s ease-out;
     overflow: hidden;
 }
 .select_league_dropdown .dropdown_click_area {
@@ -134,9 +136,27 @@
     align-items: center;
 } 
 .select_league_dropdown .dropdown_click_area div:nth-child(2) {
-    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 33px;
     width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.select_league_dropdown .select_league-container {
+    height: calc(100% - 33px);
+    width: 100%;
+}
+.select_league_dropdown .select_league-container ul {
+    margin-top: 20px;
+    list-style: none;
+    text-align: center;
+}
+.select_league_dropdown .select_league-container ul li {
+    padding: 10px 0px;
+}
+.select_league_dropdown .select_league-container ul li a {
+    text-decoration: none;
 }
