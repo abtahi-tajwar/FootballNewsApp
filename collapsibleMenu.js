@@ -19,8 +19,15 @@ if(select_league_dropdown != null) {
             dropdown_open_state = !dropdown_open_state;
         }
         else {
-            select_league_dropdown.style.height = window.innerHeight - getOffset(select_league_dropdown).top + "px";
-            dropdown_open_state = !dropdown_open_state;
+            if(window.innerHeight - getOffset(select_league_dropdown).top >= 264) {
+                select_league_dropdown.style.height = window.innerHeight - getOffset(select_league_dropdown).top + "px";
+                dropdown_open_state = !dropdown_open_state;
+            }
+            else {
+                select_league_dropdown.style.height = "264px";
+                dropdown_open_state = !dropdown_open_state;
+            }
+            
         }
     });
 }
