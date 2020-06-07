@@ -224,7 +224,7 @@ footer {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        height: 80px;
+        height: 64px;
         box-shadow: 10px 0px 10px gray;
     }
     .container .menu_container .main_logo{
