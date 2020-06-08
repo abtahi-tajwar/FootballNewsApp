@@ -140,6 +140,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .select_league_dropdown .dropdown_click_area div:nth-child(1) {
     flex: 1;
@@ -168,10 +169,15 @@
 }
 .select_league_dropdown .select_league-container ul li {
     padding: 10px 0px;
+    cursor: pointer;
+    width: 200px;
+    transition: all .5s ease-out;
+    margin: 0 auto;
 }
-.select_league_dropdown .select_league-container ul li a {
-    text-decoration: none;
+.select_league_dropdown .select_league-container ul li:hover {
+    border-bottom: 2px solid red;
 }
+
 .matches_container {
     width: 100%;
     height: 50px;
@@ -229,6 +235,16 @@
 }
 .region_selection {
     display: none;
+}
+.warning {
+    height: 200px;
+    width: 100%;
+    color: #e3e3e3;
+    font-size: 2rem;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+    font-weight: bold;
 }
 @media only screen and (orientation: landscape) and (min-width: 1000px) {
     .hero_section {

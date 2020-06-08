@@ -18,26 +18,7 @@ document.onreadystatechange = () => {
             //----
             console.log("into league dropdown")
             dropdown_click_area.addEventListener("click", () => {
-                if(dropdown_open_state) {
-                    select_league_dropdown.style.height = "33px";
-                    dropdown_open_state = !dropdown_open_state;
-                }
-                else {
-                    //----
-                    console.log("Into close state");
-                    if(window.innerHeight - getOffset(select_league_dropdown).top >= 264) {
-                        console.log("Into if");
-                        select_league_dropdown.style.height = window.innerHeight - getOffset(select_league_dropdown).top + "px";
-                        dropdown_open_state = !dropdown_open_state;
-                    }
-                    else {
-                        //----
-                        console.log("Into else");
-                        select_league_dropdown.style.height = "270px";
-                        dropdown_open_state = !dropdown_open_state;
-                    }
-                    
-                }
+                toggleLeagueDropdown();
             });
         }
         function getOffset(element) {
@@ -47,7 +28,31 @@ document.onreadystatechange = () => {
                 top: rect.top
             }
         }
+        function toggleLeagueDropdown()
+        {
+            if(dropdown_open_state) {
+                select_league_dropdown.style.height = "33px";
+                dropdown_open_state = !dropdown_open_state;
+            }
+            else {
+                //----
+                console.log("Into close state");
+                if(window.innerHeight - getOffset(select_league_dropdown).top >= 350) {
+                    console.log("Into if");
+                    select_league_dropdown.style.height = window.innerHeight - getOffset(select_league_dropdown).top + "px";
+                    dropdown_open_state = !dropdown_open_state;
+                }
+                else {
+                    //----
+                    console.log("Into else");
+                    select_league_dropdown.style.height = "350px";
+                    dropdown_open_state = !dropdown_open_state;
+                }
+                
+            }
+        }
     }
+    
   };
 
 

@@ -1,26 +1,40 @@
 let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 let tempDate = "";
+let warning = document.querySelector(".warning");
+let leagueDropDownItem = document.querySelectorAll(".select_league-container ul li");
+console.log(leagueDropDownItem);
 
-fetch("https://api-football-v1.p.rapidapi.com/v2/fixtures/league/524/next/25?timezone="+timezone, {
+function fetchFixture(leagueID) {
+    fetch("https://api-football-v1.p.rapidapi.com/v2/fixtures/league/"+leagueID+"/next/25?timezone="+timezone, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
 		"x-rapidapi-key": "f7c349acecmsh9b10dfe4084b189p1b054cjsn114ad81fc120"
 	}
-})
-.then(response => {
-    console.log(response);
-	return response.json();
-}).then(data => {
-    console.log(data);
-    console.log(data.api.fixtures[0].homeTeam.team_name);
-    updateNextMatch(data.api.fixtures[0].homeTeam.team_name, data.api.fixtures[0].awayTeam.team_name,data.api.fixtures[0].homeTeam.logo, data.api.fixtures[0].awayTeam.logo, data.api.fixtures[0].event_date);
-    updateFixtures(data.api.fixtures);
+    })
+    .then(response => {
+        console.log(response);
+        return response.json();
+    }).then(data => {
+        console.log(data);
+        clearContainer();
+        if(data.api.results === 0) {
+            warning.style.display = "block";
+        }
+        else {
+            warning.style.display = "none";
+            updateNextMatch(data.api.fixtures[0].homeTeam.team_name, data.api.fixtures[0].awayTeam.team_name,data.api.fixtures[0].homeTeam.logo, data.api.fixtures[0].awayTeam.logo, data.api.fixtures[0].event_date);
+            updateFixtures(data.api.fixtures);
+        }
+        
 
-})
-.catch(err => {
-	console.log(err);
-});
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+fetchFixture(524);
+
 function updateNextMatch(home, away, homeLogo, awayLogo, dateTime)
 {
     let next_match_teams = document.querySelector(".next_match .next_match-info p:nth-child(1)");
@@ -34,6 +48,9 @@ function updateNextMatch(home, away, homeLogo, awayLogo, dateTime)
     next_match_time.innerHTML = formatTime(dateTime);
     home_logo.src = homeLogo;
     away_logo.src = awayLogo;
+}
+function clearContainer() {
+    document.querySelector(".all_matches").innerHTML = "";
 }
 function updateFixtures(fixtures)
 {
@@ -111,3 +128,14 @@ function formatTime(input)
     let dateTime = new Date(input);
     return dateTime.getHours()+":"+dateTime.getMinutes();
 }
+
+leagueDropDownItem.forEach((Item) => {
+    console.log("Adding");
+    Item.addEventListener("click", (event) => {
+        console.log("Clicked");
+        let leagueID = event.target.attributes["tag"].value;
+        console.log(leagueID);
+        fetchFixture(leagueID);
+        toggleLeagueDropdown();
+    });
+})
