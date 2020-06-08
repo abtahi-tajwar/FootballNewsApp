@@ -114,11 +114,17 @@
     justify-content: center;
     align-items: center;
 }
+.team-one-logo img{
+    height: 64px;
+}
 .team-two-logo {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.team-two-logo img{
+    height: 64px;
 }
 .select_league_dropdown {
     position: relative;
@@ -195,6 +201,7 @@
 .matches_container .match_card .match_card-home img {
     margin-right: 10px;
     margin-left: 20px;
+    height: 21px;
 }
 .matches_container .match_card .match_card-away{
     flex: 1;
@@ -205,6 +212,7 @@
 .matches_container .match_card .match_card-away img {
     margin-left: 10px;
     margin-right: 20px;
+    height: 21px;
 }
 .matches_container .match_card .match_card-time{
     flex: 1;
