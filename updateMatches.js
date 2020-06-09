@@ -33,7 +33,7 @@ function fetchFixture(leagueID) {
         console.log(err);
     });
 }
-fetchFixture(524);
+//fetchFixture(524);
 
 function updateNextMatch(home, away, homeLogo, awayLogo, dateTime)
 {

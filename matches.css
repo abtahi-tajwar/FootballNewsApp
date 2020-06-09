@@ -4,6 +4,11 @@
    font-family: 'Oswald', sans-serif;
 
 }
+:root {
+    --pageBlue: #324897;
+    --pageRed: #DC124A;
+    --pageGray: #3B3B3B;
+}
 .container {
     height: 100%;
     width: 100%;
@@ -233,9 +238,6 @@
     justify-content: center;
     align-items: center;
 }
-.region_selection {
-    display: none;
-}
 .warning {
     height: 200px;
     width: 100%;
@@ -246,6 +248,248 @@
     text-align: center;
     font-weight: bold;
 }
+.prediction_container {
+    width: 100%;
+    max-width: 700px;
+    height: 500px;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    background-color: white;
+    z-index: 3;
+    transition: all .4s ease-out;
+    box-shadow: -5px -5px 20px -5px gray;
+}
+.prediction_heading {
+    position: relative;
+    height: 64px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prediction_content {
+    opacity: 0;
+    animation: fadeIn .5s ease-out 1s forwards;
+}
+.prediction_heading .prediction_minimize {
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.prediction_heading .prediction_minimize div {
+    height: 5px;
+    width: 20px;
+    background-color: white;
+}
+.prediction_container .prediction_teamname {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    font-weight: bold;
+}
+.prediction_container .prediction_teamname .prediction_home_team {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.prediction_container .prediction_teamname .prediction_home_team img {
+    margin-left: 15px;
+}
+.prediction_container .prediction_teamname .prediction_home_team .prediction_home_team_name {
+    margin-left: 10px;
+}
+.prediction_container .prediction_teamname .prediction_away_team {
+    flex: 1;
+    height: 100%;
+}
+.prediction_container .prediction_teamname .prediction_score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prediction_container .prediction_teamname .prediction_away_team {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.prediction_container .prediction_teamname .prediction_away_team img {
+    margin-right: 15px;
+}
+.prediction_container .prediction_teamname .prediction_away_team .prediction_away_team_name {
+    margin-right: 10px;
+}
+.prediction_container .prediction_teamname .prediction_away_team {
+    flex: 1;
+    height: 100%;
+}
+.prediction_winchance {
+    height: 100px;
+    width: 100%;
+}
+.prediction_winchance .prediction_winchance-bar {
+    margin: 0 auto;
+    width: 80%;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+}
+.home-winchance {
+    height: 100%;
+    background-color: var(--pageRed);
+    width: 45%;
+}
+.home-winchance p {
+    transform: translateY(-25px);
+} 
+.draw-chance {
+    height: 100%;
+    background-color: var(--pageGray);
+    width: 10%;
+}
+.draw-chance p {
+    transform: translateY(-25px);
+    text-align: center;
+} 
+.away-winchance {
+    height: 100%;
+    background-color: var(--pageBlue);
+    width: 45%;
+}
+.away-winchance p {
+    transform: translateY(-25px);
+    float: right;
+} 
+.prediction_winchance-info {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    font-size: 0.7rem;
+}
+.prediction_winchance-info-home {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.prediction_winchance-info-home .home-winchance-color{
+    height: 10px;
+    width: 10px;
+    background-color: var(--pageRed);
+    margin-right: 10px;
+}
+.prediction_winchance-info-away {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.prediction_winchance-info-away .away-winchance-color{
+    height: 10px;
+    width: 10px;
+    background-color: var(--pageBlue);
+    margin-right: 10px;
+}
+.prediction_winchance-info-draw {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.prediction_winchance-info-draw .draw-color{
+    height: 10px;
+    width: 10px;
+    background-color: var(--pageGray);
+    margin-right: 10px;
+}
+.prediction_stat {
+    width: 80%;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.prediction-home-stat .stat-label p {
+    text-align: right;
+}
+.prediction-away-stat .stat-label p {
+    text-align: left;
+}
+.prediction-home-stat {
+    flex: 1;
+}
+.prediction-away-stat {
+    flex: 1;
+}
+.prediction-home-stat .stat_view {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.prediction-away-stat .stat_view {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+.stat_bar {
+    transition: all 1s ease-out;
+    height: 5px;
+}
+.prediction-home-stat .stat_bar {
+    background-color: var(--pageRed);
+    margin-left: 10px;
+}
+.prediction-away-stat .stat_bar {
+    background-color: var(--pageBlue);
+    margin-right: 10px;
+}
+.prediction-home-possession .stat_bar{
+    width: 75%; 
+}
+.prediction-home-att .stat_bar{
+    width: 40%;    
+}
+.prediction-home-def .stat_bar{
+    width: 60%;
+}
+.prediction-away-possession .stat_bar{
+    width: 25%; 
+}
+.prediction-away-att .stat_bar{
+    width: 60%;    
+}
+.prediction-away-def .stat_bar{
+    width: 40%;
+}
+
+.stat_divider {
+    height: 100%;
+    width: 2px;
+    background-color: var(--pageGray);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.region_selection {
+    display: none;
+}
+
+
 @media only screen and (orientation: landscape) and (min-width: 1000px) {
     .hero_section {
         height: 400px;
@@ -282,31 +526,13 @@
     .region_selection div:hover {
         width: 350px;
     }
-    /* 
-    .next_match {
-        height: 10vh;
-        background-color: white;
-        box-shadow: 5px 0px 10px gray;
-        border-radius: 20px;
-        color: black;
-        font-size: 1rem;
+    
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0%;
     }
-    .next_match .team-one-logo {
-        height: 170%;
-        align-self: flex-end;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        background-color: white;
-        flex: none;
+    to {
+        opacity: 100%;
     }
-    .next_match .team-two-logo {
-        height: 170%;
-        align-self: flex-end;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        background-color: white;
-        flex: none;
-    } */ 
 }
