@@ -89,7 +89,7 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    background-image: url(exported/matchPicture.png);
+    background-image: url(../../exported/matchPicture.png);
 }
 .hero_section img {
     float: right;
@@ -101,6 +101,9 @@
     bottom: 20px;
     left: 20px;
     color: white;    
+}
+.hero_league_logo {
+    height: 64px;
 }
 .next_match {
     height: 20.64vh;
@@ -499,6 +502,9 @@
     .hero_section {
         height: 400px;
         position: relative;
+    }
+    .hero_league_logo {
+        height: 128px;
     }
     .region_selection {
         display: block;

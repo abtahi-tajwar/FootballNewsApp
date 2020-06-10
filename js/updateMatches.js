@@ -35,7 +35,7 @@ function fetchFixture(leagueID) {
         console.log(matchCard);
         matchCard.forEach((card, i) => {
             card.addEventListener("click", () => {
-                predictionContainerOpen(data.api.fixtures[i].fixture_id, data.api.fixtures[0].homeTeam.logo, data.api.fixtures[0].awayTeam.logo);
+                predictionContainerOpen(data.api.fixtures[i].fixture_id, data.api.fixtures[i].homeTeam.logo, data.api.fixtures[i].awayTeam.logo);
             });
         });
     })
@@ -43,7 +43,7 @@ function fetchFixture(leagueID) {
         console.log(err);
     });
 }
-//fetchFixture(524);
+fetchFixture(524);
 
 function predictionContainerOpen(id, homeLogo, awayLogo)
 {
@@ -124,6 +124,7 @@ function clearContainer() {
 function updateFixtures(fixtures)
 {
     let container = document.querySelector(".all_matches");
+    document.querySelector(".hero_league_logo").src = fixtures[0].league.logo;
     fixtures.forEach((fixture) => {
         if(formatDate(fixture.event_date) === tempDate) {           
             let matchCard = `
@@ -198,18 +199,21 @@ function formatTime(input)
     return dateTime.getHours()+":"+dateTime.getMinutes();
 }
 
-leagueDropDownItem.forEach((Item) => {
-    console.log("Adding");
-    Item.addEventListener("click", (event) => {
-        console.log("Clicked");
-        let leagueID = event.target.attributes["tag"].value;
-        console.log(leagueID);
-        fetchFixture(leagueID);
-        
-        //..
-        if(matchCard !== null) console.log(matchCard);
+function addEventListenerToDropdown(dropdown) {
+    dropdown.forEach((Item) => {
+        console.log("Adding");
+        Item.addEventListener("click", (event) => {
+            console.log("Clicked");
+            let leagueID = event.target.attributes["tag"].value;
+            console.log(leagueID);
+            fetchFixture(leagueID);
+            
+            //..
+            if(matchCard !== null) console.log(matchCard);
+        });
     });
-});
+}
+addEventListenerToDropdown(leagueDropDownItem);
 document.querySelector(".prediction_minimize").addEventListener("click", () => {
     document.querySelector(".prediction_container").style.display = "none";
     predictionPanel.style.height = "0px";
