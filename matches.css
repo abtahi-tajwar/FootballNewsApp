@@ -202,6 +202,7 @@
     border-radius: 25px;
     box-shadow: 2px 0px 10px -5px gray;
     font-size: 0.7rem;
+    cursor: pointer;
 }
 .matches_container .match_card .match_card-home{
     flex: 1;
@@ -257,8 +258,10 @@
     bottom: 0px;
     background-color: white;
     z-index: 3;
-    transition: all .4s ease-out;
+    transition: all .1s ease-out;
     box-shadow: -5px -5px 20px -5px gray;
+    overflow: hidden;
+    display: none;
 }
 .prediction_heading {
     position: relative;
@@ -307,6 +310,7 @@
 }
 .prediction_container .prediction_teamname .prediction_home_team img {
     margin-left: 15px;
+    height: 64px;
 }
 .prediction_container .prediction_teamname .prediction_home_team .prediction_home_team_name {
     margin-left: 10px;
@@ -329,6 +333,7 @@
 }
 .prediction_container .prediction_teamname .prediction_away_team img {
     margin-right: 15px;
+    height: 64px;
 }
 .prediction_container .prediction_teamname .prediction_away_team .prediction_away_team_name {
     margin-right: 10px;
