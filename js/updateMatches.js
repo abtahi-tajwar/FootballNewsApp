@@ -45,10 +45,12 @@ function fetchFixture(leagueID) {
 }
 fetchFixture(524);
 
+
+        
 function predictionContainerOpen(id, homeLogo, awayLogo)
 {
     predictionPanel.style.height = "500px";
-    let predictionContent = document.querySelector(".prediction_container");
+    let predictionContent = document.querySelector(".prediction_content");
     fetch("https://api-football-v1.p.rapidapi.com/v2/predictions/"+id, {
         "method": "GET",
         "headers": {
@@ -215,6 +217,6 @@ function addEventListenerToDropdown(dropdown) {
 }
 addEventListenerToDropdown(leagueDropDownItem);
 document.querySelector(".prediction_minimize").addEventListener("click", () => {
-    document.querySelector(".prediction_container").style.display = "none";
+    document.querySelector(".prediction_content").style.display = "none";
     predictionPanel.style.height = "0px";
 });

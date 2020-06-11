@@ -255,16 +255,15 @@
 .prediction_container {
     width: 100%;
     max-width: 700px;
-    height: 500px;
+    height: 0px;
     position: fixed;
     right: 0px;
     bottom: 0px;
     background-color: white;
     z-index: 3;
-    transition: all .1s ease-out;
+    transition: all 0.5s ease-out;
     box-shadow: -5px -5px 20px -5px gray;
     overflow: hidden;
-    display: none;
 }
 .prediction_heading {
     position: relative;
@@ -281,6 +280,7 @@
 .prediction_content {
     opacity: 0;
     animation: fadeIn .5s ease-out 1s forwards;
+    display: none;
 }
 .prediction_heading .prediction_minimize {
     height: 64px;
