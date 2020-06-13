@@ -217,6 +217,6 @@ function addEventListenerToDropdown(dropdown) {
 }
 addEventListenerToDropdown(leagueDropDownItem);
 document.querySelector(".prediction_minimize").addEventListener("click", () => {
-    document.querySelector(".prediction_content").style.display = "none";
+    document.querySelector(".prediction_content*/").style.display = "none";
     predictionPanel.style.height = "0px";
 });

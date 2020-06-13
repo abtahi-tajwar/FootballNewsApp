@@ -208,6 +208,7 @@ footer {
         height: 100%;
         width: 100%;
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         border-radius: none;
         box-shadow: none;
         grid-template-columns: repeat(1, 1fr);
