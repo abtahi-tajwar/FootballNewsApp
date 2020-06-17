@@ -50,6 +50,9 @@ body {
     margin-left: auto;
     margin-right: 20px;
 }
+.menu_container .dropdown img {
+    cursor: pointer;
+}
 .menu_container .menu {
     position: fixed;
     left: 0;
@@ -79,6 +82,9 @@ body {
 }
 .menu_container .menu  ul li a {
     text-decoration: none;
+}
+.menu_container .menu  ul li a:hover {
+    border-bottom: 2px solid black;
 }
 .menu_container .menu .close_dropdown {
     height: 30px;
@@ -131,7 +137,7 @@ body {
 .leagues_list {
     height: 100%;
     box-sizing: content-box;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     transition: margin .4s ease-in-out;
     -ms-overflow-style: none;
@@ -145,7 +151,7 @@ body {
     display: none;
 }
 .leagues_list ul {
-    list-style: none;
+    list-style: none;    
 }
 .leagues_list ul li {
     box-sizing: border-box;
@@ -171,6 +177,9 @@ body {
 .list_body {
     width: 100vw;
     flex: 1;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .list_back {
     height: 40px;
@@ -238,9 +247,11 @@ body {
 }
 .collapse_history img {
     transform: rotate(180deg);
+    cursor: pointer;
 }
 .content {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 .team-info-panel {
@@ -370,9 +381,6 @@ body {
     background-color: black;
     clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
 }
-.match_history_card .stadium {
-    display: none;
-}
 .match_history_card .date_time {
     flex: 1;
     display: flex;
@@ -392,6 +400,9 @@ body {
     margin-left: 10px;
     margin-right: 10px;
 }
+.match_history_card .stadium {
+    display: none;
+}
 @media all and (orientation: landscape) and (min-width: 1000px)
 {
     .list_body {
@@ -403,5 +414,24 @@ body {
     }
     .list_back {
         display: none;
+    }
+    .match_history_card .score {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .match_history_card .stadium {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 20px;
+    }
+    .match_history_card::before {
+        display: none;
+    }
+    .match_history_card {
+        margin-top: 10px;
     }
 }
