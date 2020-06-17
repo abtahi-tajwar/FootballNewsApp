@@ -4,6 +4,13 @@
     font-family: 'Oswald', sans-serif;
  
  }
+ html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+html::-webkit-scrollbar {
+    display: none;
+}
 :root {
     --pageBlue: #324897;
     --pageRed: #DC124A;
@@ -14,6 +21,7 @@
 body {
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 .menu_container {
     display: flex;
@@ -133,6 +141,9 @@ body {
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
 }
+.leagues_list::-webkit-scrollbar {
+    display: none;
+}
 .leagues_list ul {
     list-style: none;
 }
@@ -202,6 +213,185 @@ body {
     cursor: pointer;
     transform: translateY(28px) rotate(180deg);
 }
+.history_container {
+    position: absolute;
+    left: 0px;
+    top: 100vh;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all .4s ease-out;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+.history_container::-webkit-scrollbar {
+    display: none;
+}
+.collapse_history {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.collapse_history img {
+    transform: rotate(180deg);
+}
+.content {
+    width: 90%;
+    margin: 0 auto;
+}
+.team-info-panel {
+    height: 180px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+        "home home home pl away away away"
+        "hs hs hs pl as as as"
+    ;
+}
+.team-info-panel .home-info {
+    grid-area: home;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.team-info-panel .home-info p {
+    margin-left: 10px;
+}
+.team-info-panel .home-stat {
+    grid-area: hs;
+    font-weight: lighter;
+}
+.team-info-panel .match_played {
+    grid-area: pl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.team-info-panel .match_played p:nth-child(1) {
+    text-align: center;
+    font-size: 2rem;
+}
+.team-info-panel .match_played p:nth-child(2) {
+    text-align: center;
+    font-weight: lighter;
+    font-size: .8rem;
+}
+.team-info-panel .match_played {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px gray;
+}
+.team-info-panel .away-info {
+    grid-area: away;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.team-info-panel .away-info p {
+    margin-right: 10px;
+}
+.team-info-panel .away-stat {
+    grid-area: as;
+    font-weight: lighter;
+    text-align: right;
+}
+.star_score img {
+    height: 16px;
+    display: none;
+}
+.prediction_winchance-bar {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+}
+.home-winchance {
+    height: 100%;
+    background-color: var(--pageRed);
+    width: 45%;
+}
+.home-winchance p {
+    transform: translateY(-25px);
+} 
+.draw-chance {
+    height: 100%;
+    background-color: var(--pageGray);
+    width: 10%;
+}
+.draw-chance p {
+    transform: translateY(-25px);
+    text-align: center;
+} 
+.away-winchance {
+    height: 100%;
+    background-color: var(--pageBlue);
+    width: 45%;
+}
+.away-winchance p {
+    transform: translateY(-25px);
+    float: right;
+} 
+.match_history {
+    margin-top: 60px;
+    transition: all .4s ease-out;
+}
+.match_history_card {
+    margin-top: 40px;
+    width: 100%;
+    height: 90px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.match_history_card::before {
+    color: white;
+    text-align: center;
+    content: "Stadium: Old Trafford (Manchester)";
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    height: 30px;
+    width: 80%;
+    transform: translateX(-50%);
+    background-color: black;
+    clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+}
+.match_history_card .stadium {
+    display: none;
+}
+.match_history_card .date_time {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+.match_history_card .score {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+.match_history_card .score p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 @media all and (orientation: landscape) and (min-width: 1000px)
 {
     .list_body {
@@ -210,5 +400,8 @@ body {
     }
     .search_input_container input{
         width: 35vw;    
+    }
+    .list_back {
+        display: none;
     }
 }
