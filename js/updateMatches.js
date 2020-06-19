@@ -207,7 +207,6 @@ function addEventListenerToDropdown(dropdown) {
         Item.addEventListener("click", (event) => {
             console.log("Clicked");
             let leagueID = event.target.attributes["tag"].value;
-            console.log(leagueID);
             fetchFixture(leagueID);
             
             //..

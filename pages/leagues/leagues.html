@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="leagues.css">
 </head>
 <body>
+    <!-- <div class="temporary">
+        <form id="form" method="GET">
+            <input id="form_teamname" type="text" placeholder="League Name">
+            <input id="form_id" type="text" placeholder="id">
+            <input type="submit">
+        </form>
+    </div> -->
     <div class="menu_container">
         <div class="main_logo"><a href="../../index.html"><img src="../../exported/MainLogo.png" alt="MainLogo" class="MainLogo"></a></div>
         <div class="dropdown">
@@ -47,29 +54,33 @@
                         </div>
                     </div>
                     <ul>
-                        <li>
+                        <li tag="worldcup">
                             <img src="../../exported/leagues_logo/international.png" alt="League Logo">
                             <p>International</p>
                         </li>
-                        <li>
+                        <li tag="ucl">
                             <img src="../../exported/leagues_logo/ucl.png" alt="League Logo">
                             <p>UEFA champions League</p>
                         </li>
-                        <li>
+                        <li tag="epl">
                             <img src="../../exported/leagues_logo/premier_league.png" alt="League Logo">
                             <p>Barkley's Premier League</p>
                         </li>
-                        <li>
+                        <li tag="laliga">
                             <img src="../../exported/leagues_logo/laliga.png" alt="League Logo">
                             <p>LaLiga</p>
                         </li>
-                        <li>
+                        <li tag="seriesA">
                             <img src="../../exported/leagues_logo/seriesA.png" alt="League Logo">
                             <p>Series A</p>
                         </li>
-                        <li>
+                        <li tag="bundesliga">
                             <img src="../../exported/leagues_logo/bundesliga.png" alt="League Logo">
                             <p>Bundesliga</p>
+                        </li>
+                        <li tag="league1">
+                            <img src="../../resources/leagues_logo/61.png" alt="League Logo">
+                            <p>League 1</p>
                         </li>
                     </ul>
                 </div>
@@ -180,5 +191,6 @@
     </div>
     <script src = "../../js/collapsibleMenu.js"></script>
     <script src="leagues.js"></script>
+    <script src="updateLeagues.js"></script>
 </body>
 </html>

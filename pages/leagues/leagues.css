@@ -162,7 +162,6 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
-    transition: background-color .4s ease-in-out;
 }
 .leagues_list ul li:hover {
     background-color: var(--pageLightGray);
@@ -170,10 +169,12 @@ body {
 .leagues_list ul li img {
     height: 80%;
     margin-left: 20px;
+    pointer-events: none;
 }
 .leagues_list ul li p {
     font-weight: lighter;
     margin-left: 20px;
+    pointer-events: none;
 }
 .list_body {
     width: 100vw;
@@ -188,7 +189,8 @@ body {
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    padding-left: 20px;    
+    padding-left: 20px;
+    cursor: pointer;    
 }
 .list_back:hover {
     background-color: var(--pageLightGray);
@@ -452,5 +454,21 @@ body {
     }
     .match_history_card {
         margin-top: 10px;
+    }
+    .temporary {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 200px;
+        width: 500px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+    }
+    .temporary input {
+        padding: 1em;
     }
 }
