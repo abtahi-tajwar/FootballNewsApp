@@ -1,6 +1,7 @@
 // console.log(window.localStorage.getItem("epl"));
 //fetchTeams("524");
 
+//This list should be updated to every season once
 let leaguesDetails  = [
     {
         "name": "worldcup",
@@ -32,6 +33,7 @@ let leaguesDetails  = [
     }
     
 ];
+//This function should be called at every season once
 function initStorage()
 {
     leaguesDetails.forEach(savetoStorage);
@@ -81,10 +83,11 @@ function showTeamsFromLocalStorage(key)
     list.innerHTML = "";
     datas.forEach(data => {
         list.innerHTML += `
-        <li>
-            <img src="${data.logo}" alt="Team Logo">
+        <li tag="${data.name}" id="${data.team_id}">
+            <img src="${data.logo}"alt="Team Logo">
             <p>${data.name}</p>
         </li>
         `
     })
+    addVersusEventListener();
 }
