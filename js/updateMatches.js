@@ -27,7 +27,7 @@ function fetchFixture(leagueID) {
             updateNextMatch(data.api.fixtures[0].homeTeam.team_name, data.api.fixtures[0].awayTeam.team_name,data.api.fixtures[0].homeTeam.logo, data.api.fixtures[0].awayTeam.logo, data.api.fixtures[0].event_date);
             updateFixtures(data.api.fixtures);
         }
-        return data;     
+        return data;
 
     }).then(data => {
         matchCard = document.querySelectorAll(".match_card");
@@ -46,7 +46,7 @@ function fetchFixture(leagueID) {
 fetchFixture(524);
 
 
-        
+
 function predictionContainerOpen(id, homeLogo, awayLogo)
 {
     predictionPanel.style.height = "500px";
@@ -68,7 +68,7 @@ function predictionContainerOpen(id, homeLogo, awayLogo)
         document.querySelector(".prediction_home_team_name").innerHTML = data.api.predictions[0].teams.home.team_name;
         document.querySelector(".prediction_away_team_name").innerHTML = data.api.predictions[0].teams.away.team_name;
         document.querySelector(".prediction_score").innerHTML = Math.round(data.api.predictions[0].goals_home)*-1 + ":" + Math.round(data.api.predictions[0].goals_away)*-1;
-        
+
         //Setting winning chance bar and text
         document.querySelector(".home-winchance p").innerHTML = data.api.predictions[0].winning_percent.home;
         document.querySelector(".home-winchance").style.width = data.api.predictions[0].winning_percent.home;
@@ -128,7 +128,7 @@ function updateFixtures(fixtures)
     let container = document.querySelector(".all_matches");
     document.querySelector(".hero_league_logo").src = fixtures[0].league.logo;
     fixtures.forEach((fixture) => {
-        if(formatDate(fixture.event_date) === tempDate) {           
+        if(formatDate(fixture.event_date) === tempDate) {
             let matchCard = `
             <div class="matches_container">
             <div class="match_card">
@@ -141,10 +141,10 @@ function updateFixtures(fixtures)
                 </div>
                 <div class="match_card-away">
                     <p>${fixture.awayTeam.team_name}</p>
-                    <img src="${fixture.awayTeam.logo}" alt="Away Team Logo">                    
+                    <img src="${fixture.awayTeam.logo}" alt="Away Team Logo">
                 </div>
             </div>
-        </div>        
+        </div>
             `;
             container.innerHTML += matchCard;
 
@@ -166,10 +166,10 @@ function updateFixtures(fixtures)
                 </div>
                 <div class="match_card-away">
                     <p>${fixture.awayTeam.team_name}</p>
-                    <img src="${fixture.awayTeam.logo}" alt="Away Team Logo">                    
+                    <img src="${fixture.awayTeam.logo}" alt="Away Team Logo">
                 </div>
             </div>
-        </div>        
+        </div>
             `;
             container.innerHTML += matchCard;
         }
@@ -193,7 +193,7 @@ function formatDate(input)
 
     let dateTime = new Date(input);
     return dateTime.getDate()+" "+month[dateTime.getMonth()]+", "+dateTime.getFullYear();
-    
+
 }
 function formatTime(input)
 {
@@ -208,7 +208,7 @@ function addEventListenerToDropdown(dropdown) {
             console.log("Clicked");
             let leagueID = event.target.attributes["tag"].value;
             fetchFixture(leagueID);
-            
+
             //..
             if(matchCard !== null) console.log(matchCard);
         });
@@ -216,6 +216,6 @@ function addEventListenerToDropdown(dropdown) {
 }
 addEventListenerToDropdown(leagueDropDownItem);
 document.querySelector(".prediction_minimize").addEventListener("click", () => {
-    document.querySelector(".prediction_content*/").style.display = "none";
+    document.querySelector(".prediction_content").style.display = "none";
     predictionPanel.style.height = "0px";
 });
