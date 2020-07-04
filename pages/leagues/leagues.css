@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Oswald', sans-serif;
- 
+
  }
 html {
     overflow: hidden;
@@ -30,7 +30,7 @@ body {
     align-items: center;
     height: 63px;
     width: 100%;
-    box-shadow: 10px 0px 10px gray; 
+    box-shadow: 10px 0px 10px gray;
     position: fixed;
     left: 0px;
     top: 0px;
@@ -107,7 +107,7 @@ body {
     overflow: hidden;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 80px;
-    grid-template-areas: 
+    grid-template-areas:
     "content"
     "versus"
     ;
@@ -131,7 +131,7 @@ body {
     cursor: pointer;
 }
 .list {
-    grid-area: content;   
+    grid-area: content;
     display: flex;
     overflow-x: hidden;
 }
@@ -152,7 +152,7 @@ body {
     display: none;
 }
 .leagues_list ul {
-    list-style: none;    
+    list-style: none;
 }
 .leagues_list ul li {
     box-sizing: border-box;
@@ -190,7 +190,7 @@ body {
     display: flex;
     align-items: center;
     padding-left: 20px;
-    cursor: pointer;    
+    cursor: pointer;
 }
 .list_back:hover {
     background-color: var(--pageLightGray);
@@ -248,7 +248,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    
+
 }
 .collapse_history img {
     transform: rotate(180deg);
@@ -265,7 +265,7 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "home home home pl away away away"
         "hs hs hs pl as as as"
     ;
@@ -280,6 +280,12 @@ body {
 .team-info-panel .home-info p {
     margin-left: 10px;
     margin-right: 10px;
+}
+.team-info-panel .home-info img {
+    height: 92px;
+}
+.team-info-panel .away-info img {
+    height: 92px;
 }
 .team-info-panel .home-stat {
     grid-area: hs;
@@ -344,7 +350,7 @@ body {
 }
 .home-winchance p {
     transform: translateY(-25px);
-} 
+}
 .draw-chance {
     height: 100%;
     background-color: var(--pageGray);
@@ -353,7 +359,7 @@ body {
 .draw-chance p {
     transform: translateY(-25px);
     text-align: center;
-} 
+}
 .away-winchance {
     height: 100%;
     background-color: var(--pageBlue);
@@ -362,7 +368,7 @@ body {
 .away-winchance p {
     transform: translateY(-25px);
     float: right;
-} 
+}
 .match_history {
     margin-top: 60px;
     transition: all .4s ease-out;
@@ -419,7 +425,7 @@ body {
         float: left;
     }
     .search_input_container input{
-        width: 35vw;    
+        width: 35vw;
     }
     .list_back {
         display: none;

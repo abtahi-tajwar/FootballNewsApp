@@ -1,6 +1,5 @@
 // console.log(window.localStorage.getItem("epl"));
 //fetchTeams("524");
-
 //This list should be updated to every season once
 let leaguesDetails  = [
     {
@@ -31,24 +30,8 @@ let leaguesDetails  = [
         "name": "bundesliga",
         "id": "754"
     }
-    
+
 ];
-//This function should be called at every season once
-function initStorage()
-{
-    leaguesDetails.forEach(savetoStorage);
-}
-async function savetoStorage(league)
-{    
-    let data = await fetchTeams(league.id);
-    if(data !== null) {
-        localStorage.setItem(league.name, JSON.stringify(data));
-        //console.log(JSON.parse(localStorage.getItem(league.name)));
-    }
-    else {
-        e.preventDefault();
-    }
-}
 
 async function fetchTeams(id)
 {
@@ -66,19 +49,57 @@ async function fetchTeams(id)
     catch(err) {
         console.log(err);
         return null;
-    }  
+    }
 }
 //Handling league click
 //Filling out teams list in UI
-showTeamsFromLocalStorage('epl');
+//showTeamsFromLocalStorage('epl');
 document.querySelectorAll(".leagues_list .list_body:nth-child(1) ul li").forEach(league => {
     league.addEventListener('click', (e) => {
-        showTeamsFromLocalStorage(e.target.attributes["tag"].value);
+        //showTeamsFromLocalStorage(e.target.attributes["tag"].value);
+        showTeams(e.target.attributes["tag"].value);
     })
 });
+
+async function showTeams(id)
+{
+  let data = await fetchTeams(id);
+  let list = document.querySelector(".leagues_list .list_body:nth-child(2) ul");
+  let teams = data.api.teams;
+  list.innerHTML = "";
+  teams.forEach(team => {
+    list.innerHTML += `
+    <li tag="${team.name}" id="${team.team_id}">
+        <img src="${team.logo}" alt="Team Logo">
+        <p>${team.name}</p>
+    </li>
+    `
+  })
+  addVersusEventListener();
+}
+showTeams(524);
+
+/* Trash
+
+//This function should be called at every season once
+function initStorage()
+{
+    leaguesDetails.forEach(savetoStorage);
+}
+async function savetoStorage(league)
+{
+    let data = await fetchTeams(league.id);
+    if(data !== null) {
+        localStorage.setItem(league.name, JSON.stringify(data));
+        //console.log(JSON.parse(localStorage.getItem(league.name)));
+    }
+    else {
+        e.preventDefault();
+    }
+}
 function showTeamsFromLocalStorage(key)
 {
-    let datas = JSON.parse(localStorage.getItem(key)).api.teams;    
+    let datas = JSON.parse(localStorage.getItem(key)).api.teams;
     let list = document.querySelector(".leagues_list .list_body:nth-child(2) ul");
     list.innerHTML = "";
     datas.forEach(data => {
@@ -91,3 +112,4 @@ function showTeamsFromLocalStorage(key)
     })
     addVersusEventListener();
 }
+*/
